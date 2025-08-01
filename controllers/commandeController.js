@@ -1,4 +1,4 @@
-import { transporter } from "../utils/mailService.js";
+import { transporter } from "../utils/mailService";
 
 export const traiterCommande = async (req, res) => {
   const { infosClient, produits, total } = req.body;

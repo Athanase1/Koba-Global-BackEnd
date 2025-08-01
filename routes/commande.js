@@ -1,5 +1,6 @@
 import express from "express";
-import { traiterCommande } from "../controllers/commandeController.js";
+import { traiterCommande } from "../controllers/commandeController";
+
 
 const router = express.Router();
 
