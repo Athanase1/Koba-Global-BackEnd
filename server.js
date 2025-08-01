@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
-import router from "./routes/commande.js";
+import routeCommande from "./routes/commande.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000
@@ -22,5 +22,5 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/commande",router)
+app.use("/commande", routeCommande)
 app.listen(PORT, () => console.log(`serveur démarré sur port ${PORT}`));
