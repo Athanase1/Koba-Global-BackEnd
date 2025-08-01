@@ -22,5 +22,5 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/commande", routeCommande)
+app.use('/api/commandes', routeCommande)
 app.listen(PORT, () => console.log(`serveur démarré sur port ${PORT}`));
