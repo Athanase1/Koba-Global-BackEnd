@@ -140,14 +140,13 @@ export const commandeConfirmation = async  (req, res) =>{
 `;
   try {
       await transporter.sendMail({
-          from:`"Distributions Kobal Global" <${process.env.MAIL_USER}`,
+          from:`"Distributions Kobal Global" <${process.env.MAIL_USER}>`,
           to:[infosClient.email, process.env.MAIL_USER],
           subject:"Confirmation de commande",
           html:html
       });
       return res.status(200).json({ success: true, message: "Commande reçue et email envoyé" });
   } catch (e) {
-      console.error("Erreur d’envoi de mail:", error);
       return res.status(500).json({ error: "Erreur serveur" });
   }
 }
