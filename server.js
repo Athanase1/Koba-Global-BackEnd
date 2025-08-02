@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000
 const allowedOrigins = [
     "http://localhost:5173",
     "https://athanase1.github.io",
+    "https://www.distributionskoba.com"
 ];
 const transporter = nodemailer.createTransport({
     service:"gmail",
