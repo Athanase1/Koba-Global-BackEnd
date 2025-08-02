@@ -186,13 +186,13 @@ try{
        html:html,
    })
   return  res.status(200).json({
-        sucess:true,
+        success:true,
         message:"Commande envoyée avec succèss!"
     })
 }catch (e) {
     console.error("Erreur lors de l'envoi de commande:", e)
   return  res.status(500).json({
-      sucess:false,
+      success:false,
        message:"erreur serveur"
    })
 }
