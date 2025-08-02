@@ -30,7 +30,7 @@ const corsOptions = {
     credentials: true,
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+
 
 app.use(express.json());
 
@@ -38,9 +38,10 @@ app.post("/commande", async (req, res) =>{
 try{
     const {infosClient, produits, total} = req.body;
     if(!infosClient || !produits || !total){
+
         return res.status(500).json({
             success:false,
-            message:"Données manquantes"
+            message:"Données manquantes",
         })
     }
  const html = `
@@ -189,7 +190,9 @@ try{
         message:"Commande envoyée avec succèss!"
     })
 }catch (e) {
+    console.error("Erreur lors de l'envoi de commande:", e)
   return  res.status(500).json({
+      sucess:false,
        message:"erreur serveur"
    })
 }
