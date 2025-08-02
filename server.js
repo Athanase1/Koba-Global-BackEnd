@@ -30,13 +30,15 @@ const corsOptions = {
     credentials: true,
 };
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 
 app.post("/commande", async (req, res) =>{
 try{
     const {infosClient, produits, total} = req.body;
     if(!infosClient || !produits || !total){
-        res.status(500).json({
+        return res.status(500).json({
             success:false,
             message:"Données manquantes"
         })
@@ -182,12 +184,12 @@ try{
        message:"Merci pour votre commande chez nous",
        html:html,
    })
-    res.status(200).json({
+  return  res.status(200).json({
         sucess:true,
         message:"Commande envoyée avec succèss!"
     })
 }catch (e) {
-   res.status(500).json({
+  return  res.status(500).json({
        message:"erreur serveur"
    })
 }
