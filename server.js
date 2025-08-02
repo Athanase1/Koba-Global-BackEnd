@@ -29,6 +29,14 @@ const transporter = nodemailer.createTransport({
         pass:process.env.MAIL_PASS,
     }
 })
+transporter.verify((error, success) => {
+    if (error) {
+        console.log("Erreur Nodemailer:", error);
+    } else {
+        console.log("Serveur prêt pour envoyer des mails");
+    }
+});
+
 
 
 
@@ -193,7 +201,7 @@ try{
     console.error("Erreur lors de l'envoi de commande:", e)
   return  res.status(500).json({
       success:false,
-       message:"erreur serveur"
+       message:"Tout est de notre faut veillez ressayez plus tard"
    })
 }
 })
