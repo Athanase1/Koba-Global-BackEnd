@@ -25,8 +25,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
     service:"gmail",
     auth:{
-        user:process.env.MAIL_USER,
-        pass:process.env.MAIL_PASS,
+        user:process.env.MAIL_USER.toString(),
+        pass:process.env.MAIL_PASS.toString(),
     }
 })
 transporter.verify((error, success) => {
