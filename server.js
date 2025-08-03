@@ -44,8 +44,8 @@ transporter.verify((error, success) => {
 
 app.post("/commande", async (req, res) =>{
 try{
-    const {infosClient, produits, total} = req.body;
-    if(!infosClient || !produits || !total){
+    const {infosClient, produits} = req.body;
+    if(!infosClient || !produits){
 
         return res.status(500).json({
             success:false,
@@ -148,7 +148,7 @@ try{
       <tr>
         <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Nom</th>
         <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Quantité</th>
-        <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Prix unitaire ($)</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -156,18 +156,12 @@ try{
         <tr>
           <td style="border: 1px solid #ccc; padding: 8px;">${p.nom}</td>
           <td style="border: 1px solid #ccc; padding: 8px;">${p.qte}</td>
-          <td style="border: 1px solid #ccc; padding: 8px;">${p.prix.toFixed(2)}</td>
+         
         </tr>
       `).join('')}
     </tbody>
   </table>
 </div>
-
-
-        <div class="section">
-          <h3>💰 Total</h3>
-          <p><strong>${total.toFixed(2)} $</strong></p>
-        </div>
             <div class="section">
             <p>Nous vous contacteront sous peu pour completer la commande.</p>
             
