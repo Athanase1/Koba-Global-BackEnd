@@ -31,7 +31,7 @@ const transporter = nodemailer.createTransport({
 })
 transporter.verify((error, success) => {
     if (error) {
-        console.log("Erreur Nodemailer:", error);
+        console.log("Mot de passe ou email pas bon:", error);
     } else {
         console.log("Serveur prêt pour envoyer des mails");
     }
